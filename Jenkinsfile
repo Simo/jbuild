@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh './mvnw -Pprod clean verify'
+        sh './mvnw -Pprod clean package'
       }
     }
 
