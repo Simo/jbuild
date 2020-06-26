@@ -12,6 +12,13 @@ pipeline {
         sh './mvnw -Pprod clean package -DskipTests'
       }
     }
+      
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            junit 'target/reports/**/*.xml'
+        }
+    }
 
   }
 }
